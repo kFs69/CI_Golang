@@ -5,18 +5,17 @@ name: Go
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "*" ]
 
 jobs:
 
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         go_version: ['1.21', '1.20', '>=1.21']
-        os: [ubuntu-latest, ubuntu-18.04]
         
     steps:
     - uses: actions/checkout@v3
